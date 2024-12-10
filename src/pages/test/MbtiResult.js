@@ -11,6 +11,42 @@ const Con = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  h4{
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  h2{
+    font-size: 20px;
+    font-weight: 500;
+  }
+  h1{
+    color: #C55972;
+    margin-top: 15px;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  div{
+    height: 300px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+
+  ul{
+    display: flex;
+    li{
+      margin-right: 5px;
+    }
+    color: #C55972;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  p{
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
 `;
 
 const MbtiResult = () => {
@@ -30,17 +66,18 @@ const MbtiResult = () => {
 
   return (
     <Con>
-      <h1>당신의 MBTI는 {result.type}입니다!</h1>
+      <h4>나의 MBTI는</h4>
       <h2>{result.nickname}</h2>
-      <p>{result.description}</p>
-      <h3>키워드:</h3>
+      <h1>{result.type}</h1>
+      <div>이미지</div>
       <ul>
         {result.keywords.map((keyword, index) => (
-          <li key={index}>{keyword}</li>
+          <li key={index}>#{keyword}</li>
         ))}
       </ul>
+      <p>{result.description}</p>
       <h3>잘 맞는 MBTI:</h3>
-      <p>{result.compatibleMBTI.join(", ")}</p>
+      <h3>{result.compatibleMBTI.join(", ")}</h3>
     </Con>
   );
 };

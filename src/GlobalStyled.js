@@ -10,36 +10,36 @@ export const GlobalStyled = createGlobalStyle`
   @font-face {
     font-family: 'SCDream';
     src: url('/fonts/SCDream2.otf') format('opentype');
-    font-weight: 400;
     font-style: normal;
+    font-weight: 200;
   }
 
   @font-face {
     font-family: 'SCDream';
     src: url('/fonts/SCDream3.otf') format('opentype');
-    font-weight: 700;
     font-style: normal;
+    font-weight: 300;
   }
 
   @font-face {
     font-family: 'SCDream';
     src: url('/fonts/SCDream4.otf') format('opentype');
-    font-weight: 700;
     font-style: normal;
+    font-weight: 400;
   }
 
   @font-face {
     font-family: 'SCDream';
     src: url('/fonts/SCDream5.otf') format('opentype');
-    font-weight: 700;
     font-style: normal;
+    font-weight: 500;
   }
 
   @font-face {
     font-family: 'SCDream';
     src: url('/fonts/SCDream6.otf') format('opentype');
-    font-weight: 700;
     font-style: normal;
+    font-weight: 600;
   }
 
   body {
