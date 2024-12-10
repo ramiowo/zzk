@@ -3,6 +3,7 @@ import Home from "./pages/home/Home";
 import Test from "./pages/test/Test";
 import MbtiResult from "./pages/test/MbtiResult";
 import Header from "./components/Header";
+import Info from "./pages/info/Info";
 
 const Router = () => {
   const location = useLocation();
@@ -15,6 +16,7 @@ const Router = () => {
         <Route path="/" element={<Home />} />
         <Route path="/test" element={<Test />} />
         <Route path="/mbtiresult" element={<MbtiResult />} />
+        <Route path="/info" element={<Info />} />
       </Routes>
     </>
   );
