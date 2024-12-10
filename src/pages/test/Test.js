@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import questions from "./data/questions";
+import styled from "styled-components";
+
+const Con = styled.div`
+  width: 100%;
+  max-width: 393px;
+  margin: 0 auto;
+`;
 
 const Test = () => {
   const [answers, setAnswers] = useState({
@@ -30,7 +37,7 @@ const Test = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <Con>
       <h2>
         질문 {currentQuestion + 1} / {questions.length}
       </h2>
@@ -44,7 +51,7 @@ const Test = () => {
           {option.answer}
         </button>
       ))}
-    </div>
+    </Con>
   );
 };
 

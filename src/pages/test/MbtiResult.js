@@ -1,5 +1,12 @@
 import { useLocation } from "react-router-dom";
 import TestResult from "./data/TestResult";
+import styled from "styled-components";
+
+const Con = styled.div`
+  width: 100%;
+  max-width: 393px;
+  margin: 0 auto;
+`;
 
 const MbtiResult = () => {
   const location = useLocation();
@@ -17,7 +24,7 @@ const MbtiResult = () => {
   const result = mbtiData.find((item) => item.type === mbti);
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <Con>
       <h1>당신의 MBTI는 {result.type}입니다!</h1>
       <h2>{result.nickname}</h2>
       <p>{result.description}</p>
@@ -29,7 +36,7 @@ const MbtiResult = () => {
       </ul>
       <h3>잘 맞는 MBTI:</h3>
       <p>{result.compatibleMBTI.join(", ")}</p>
-    </div>
+    </Con>
   );
 };
 
