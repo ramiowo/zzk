@@ -6,6 +6,11 @@ const Con = styled.div`
   width: 100%;
   max-width: 393px;
   margin: 0 auto;
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const MbtiResult = () => {
