@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import logo from "../../imgs/logo.svg";
 import homeheart from "../../imgs/homeheart.svg";
+import { useNavigate } from "react-router";
 
 const Container = styled.div`
   width: 100%;
@@ -14,6 +15,7 @@ const Container = styled.div`
     rgba(245, 245, 245, 1) 100%
   ); */
   position: relative;
+  /* margin-bottom: 20px; */
 `;
 
 const BackColor = styled.div`
@@ -21,7 +23,7 @@ const BackColor = styled.div`
   height: 308px;
   position: absolute;
   left: 43px;
-  top: 222px;
+  top: 160px;
   z-index: -1;
   border-radius: 50%;
   background-color: rgba(243, 147, 171, 0.5);
@@ -35,7 +37,7 @@ const HomeLogo = styled.div`
   img {
     width: 154px;
     height: 56px;
-    margin-top: 118px;
+    margin-top: 70px;
   }
 `;
 
@@ -43,13 +45,50 @@ const HomeHeart = styled.div`
   /* z-index: 10; */
   margin-top: 40px;
   img {
+    width: 400px;
+    height: 280px;
     z-index: 10;
+    object-fit: contain;
+    overflow: hidden;
   }
 `;
 
-const Button = styled.div``;
+const Button = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+  button {
+    all: unset;
+    width: 320px;
+    height: 55px;
+    border-radius: 50px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .with {
+    background-color: #eeadbd;
+    color: #f5f5f5;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  .mbti {
+    background-color: #fff;
+    color: #f17796;
+    font-weight: 300;
+  }
+`;
 
 const Home = () => {
+  const testNav = useNavigate();
+
+  const handleWith = () => {
+    testNav("/info");
+  };
+
+  const handleMbti = () => {
+    testNav("/test");
+  };
   return (
     <Container>
       <BackColor />
@@ -60,8 +99,12 @@ const Home = () => {
         <img src={homeheart} alt="homeheart" />
       </HomeHeart>
       <Button>
-        <button className="with">우리의 궁합 보기</button>
-        <button className="mbti">나의 MBTI 알아보기</button>
+        <button onClick={handleWith} className="with">
+          우리의 궁합 보기
+        </button>
+        <button onClick={handleMbti} className="mbti">
+          나의 MBTI 알아보기
+        </button>
       </Button>
     </Container>
   );

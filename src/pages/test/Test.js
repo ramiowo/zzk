@@ -2,11 +2,47 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import questions from "./data/questions";
 import styled from "styled-components";
+import heart from "../../imgs/heart.svg"
 
 const Con = styled.div`
   width: 100%;
   max-width: 393px;
+  height: 100vh;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
+  h2{
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 40px;
+  }
+  img{
+    margin-bottom: 40px;
+  }
+  p{
+    margin-bottom: 100px;
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+   button{
+     all: unset;
+     width: 100%;
+     height: 40px;
+     border-radius: 50px;
+     border: 1px solid white;
+     font-family: 'SCDream';
+     font-size: 50px;
+     padding: 0 20px;
+     text-align: center;
+    background-color: rgba(255,255,255,0.5);
+    
+   }
 `;
 
 const Test = () => {
@@ -41,6 +77,7 @@ const Test = () => {
       <h2>
         질문 {currentQuestion + 1} / {questions.length}
       </h2>
+      <img src={heart} alt="heart" />
       <p>{questions[currentQuestion].question}</p>
       {questions[currentQuestion].options.map((option, index) => (
         <button

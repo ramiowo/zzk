@@ -11,9 +11,10 @@ const Container = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(233, 109, 128, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  /* background-color: rgba(233, 109, 128, 0.1); */
 
-  box-shadow: 0px 3px 10px rgba(149, 42, 68, 0.2);
+  /* box-shadow: 0px 3px 10px rgba(149, 42, 68, 0.2); */
   position: relative;
 `;
 const BackButton = styled.button`
@@ -37,7 +38,7 @@ const Header = () => {
   return (
     <Container>
       {showBackButton && (
-        <BackButton onClick={() => Navigate(-1)}>
+        <BackButton onClick={() => navigate(-1)}>
           <IoIosArrowBack />
         </BackButton>
       )}
