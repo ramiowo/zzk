@@ -44,5 +44,8 @@ export const GlobalStyled = createGlobalStyle`
 
   body {
     font-family: 'SCDream', sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background: linear-gradient(to bottom,#ECCBD3,#F5F5F5);
   }
 `;
