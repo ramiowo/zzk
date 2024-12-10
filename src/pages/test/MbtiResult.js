@@ -11,6 +11,7 @@ const Con = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 16px;
 `;
 
 const MbtiResult = () => {

@@ -47,5 +47,6 @@ export const GlobalStyled = createGlobalStyle`
     background-repeat: no-repeat;
     background-position: center;
     background: linear-gradient(to bottom,#ECCBD3,#F5F5F5);
+    letter-spacing: -1px;
   }
 `;

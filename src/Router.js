@@ -8,10 +8,10 @@ import Info from "./pages/info/Info";
 const Router = () => {
   const location = useLocation();
   const hiddenHeader = ["/"];
-  const ShowHeader = !hiddenHeader.includes(location.pathname);
+  const showHeader = !hiddenHeader.includes(location.pathname);
   return (
     <>
-      {ShowHeader && <Header />}
+      {showHeader && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/test" element={<Test />} />
