@@ -11,7 +11,42 @@ const Con = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 16px;
+  h4 {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  h1 {
+    color: #c55972;
+    margin-top: 15px;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  div {
+    height: 300px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+
+  ul {
+    display: flex;
+    li {
+      margin-right: 5px;
+    }
+    color: #c55972;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
 `;
 
 const MbtiResult = () => {
