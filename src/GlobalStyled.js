@@ -10,14 +10,14 @@ export const GlobalStyled = createGlobalStyle`
   @font-face {
     font-family: 'SCDream';
     src: url('/fonts/SCDream2.otf') format('opentype');
-    font-weight: 400; /* 일반 */
+    font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'SCDream';
     src: url('/fonts/SCDream3.otf') format('opentype');
-    font-weight: 700; /* 굵은 글씨 */
+    font-weight: 700;
     font-style: normal;
   }
 
