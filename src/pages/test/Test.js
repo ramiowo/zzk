@@ -57,7 +57,7 @@ const Test = () => {
     P: 0,
   });
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [clickedButton, setClickedButton] = useState(null);
+  // const [clickedButton, setClickedButton] = useState(null);
   const navigate = useNavigate();
 
   const handleAnswer = (type) => {

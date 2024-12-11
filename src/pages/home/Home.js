@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import logo from "../../imgs/logo.svg";
 import homeheart from "../../imgs/homeheart.svg";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
