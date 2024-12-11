@@ -23,6 +23,7 @@ const BackButton = styled.button`
   left: 0;
   padding-left: 16px;
   font-size: 20px;
+  color: white;
 `;
 const Logo = styled.div`
   img {

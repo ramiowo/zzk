@@ -1,5 +1,5 @@
 const Star = () => {
-    const StartData = [
+  const StartData = [
       {
         id: 1,
         signs: ["양자리 ♈", "황소자리 ♉"],

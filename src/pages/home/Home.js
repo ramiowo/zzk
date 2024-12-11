@@ -15,7 +15,6 @@ const Container = styled.div`
     rgba(245, 245, 245, 1) 100%
   ); */
   position: relative;
-  /* margin-bottom: 20px; */
 `;
 
 const BackColor = styled.div`
@@ -66,6 +65,8 @@ const Button = styled.div`
     text-align: center;
     cursor: pointer;
     letter-spacing: 0px;
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.3);
+    border: 2px solid rgba(255,255,255,0.4);
   }
   .with {
     background-color: #eeadbd;
@@ -76,7 +77,9 @@ const Button = styled.div`
   .mbti {
     background-color: #fff;
     color: #eeadbd;
-    font-weight: 300;
+    box-shadow: inset 0 0 20px rgba(238,173,189,0.1);
+    font-weight: 400;
+    
   }
 `;
 
