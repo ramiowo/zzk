@@ -57,7 +57,7 @@ const Button = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 60px;
   button {
     all: unset;
     width: 320px;
@@ -65,6 +65,7 @@ const Button = styled.div`
     border-radius: 50px;
     text-align: center;
     cursor: pointer;
+    letter-spacing: 0px;
   }
   .with {
     background-color: #eeadbd;

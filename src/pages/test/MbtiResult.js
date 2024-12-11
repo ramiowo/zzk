@@ -11,39 +11,39 @@ const Con = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  h4{
+  h4 {
     font-size: 16px;
     margin-bottom: 30px;
   }
-  h2{
+  h2 {
     font-size: 20px;
     font-weight: 500;
   }
-  h1{
-    color: #C55972;
+  h1 {
+    color: #c55972;
     margin-top: 15px;
     font-size: 40px;
     font-weight: 700;
   }
 
-  div{
+  div {
     height: 300px;
     text-align: center;
     display: flex;
     align-items: center;
   }
 
-  ul{
+  ul {
     display: flex;
-    li{
+    li {
       margin-right: 5px;
     }
-    color: #C55972;
+    color: #c55972;
     font-size: 14px;
     margin-bottom: 10px;
   }
 
-  p{
+  p {
     font-size: 20px;
     margin-bottom: 30px;
   }

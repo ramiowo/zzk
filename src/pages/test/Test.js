@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import questions from "./data/questions";
 import styled from "styled-components";
-import heart from "../../imgs/heart.svg"
+import heart from "../../imgs/heart.svg";
 
 const Con = styled.div`
   width: 100%;
@@ -13,17 +13,18 @@ const Con = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  
-  h2{
+  padding: 16px;
+
+  h2 {
     font-size: 16px;
     font-weight: 700;
     color: white;
     margin-bottom: 40px;
   }
-  img{
+  img {
     margin-bottom: 40px;
   }
-  p{
+  p {
     margin-bottom: 100px;
     font-size: 22px;
     font-weight: 400;
@@ -31,24 +32,18 @@ const Con = styled.div`
     word-break: keep-all;
   }
 
-   button{
-     all: unset;
-     width: 100%;
-     height: 40px;
-     border-radius: 50px;
-     border: 1px solid white;
-     font-family: 'SCDream';
-     font-size: 50px;
-     padding: 0 20px;
-     text-align: center;
-    background-color: rgba(255,255,255,0.5);
-    transition: background-color 0.3s ease;
-
-    ${(props) => props.isClicked && `
-      background-color: #EFC2CD;
-    `}
-    
-   }
+  button {
+    all: unset;
+    width: 100%;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid white;
+    font-family: "SCDream";
+    font-size: 50px;
+    padding: 0 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 `;
 
 const Test = () => {
@@ -71,7 +66,7 @@ const Test = () => {
       ...prev,
       [type]: prev[type] + 1,
     }));
-    setClickedButton(type);
+
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
@@ -91,7 +86,7 @@ const Test = () => {
           key={index}
           onClick={() => handleAnswer(option.type)}
           style={{ margin: "10px", padding: "10px 20px", fontSize: "16px" }}
-          isClicked={clickedButton === option.type}>
+        >
           {option.answer}
         </button>
       ))}

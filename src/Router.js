@@ -11,7 +11,6 @@ const Router = () => {
   const showHeader = !hiddenHeader.includes(location.pathname);
   return (
     <>
-      <HashRouter>
       {showHeader && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -19,7 +18,6 @@ const Router = () => {
         <Route path="/mbtiresult" element={<MbtiResult />} />
         <Route path="/info" element={<Info />} />
       </Routes>
-      </HashRouter>
     </>
   );
 };
