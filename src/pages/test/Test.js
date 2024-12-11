@@ -7,7 +7,6 @@ import heart from "../../imgs/heart.svg";
 const Con = styled.div`
   width: 100%;
   max-width: 393px;
-  height: 100vh;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -20,6 +19,7 @@ const Con = styled.div`
     font-weight: 700;
     color: white;
     margin-bottom: 40px;
+    margin-top: 80px;
   }
   img {
     margin-bottom: 40px;

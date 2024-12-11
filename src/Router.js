@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
+import {Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Test from "./pages/test/Test";
 import MbtiResult from "./pages/test/MbtiResult";

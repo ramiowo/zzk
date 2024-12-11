@@ -6,12 +6,12 @@ const Con = styled.div`
   width: 100%;
   max-width: 393px;
   margin: 0 auto;
-  height: 100vh;
   justify-content: center;
   display: flex;
   align-items: center;
   flex-direction: column;
   h4 {
+    margin-top: 30px;
     font-size: 16px;
     margin-bottom: 30px;
   }
@@ -44,8 +44,9 @@ const Con = styled.div`
   }
 
   p {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 30px;
+    line-height: 19px;
   }
 `;
 
