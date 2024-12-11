@@ -28,6 +28,7 @@ const Con = styled.div`
     font-size: 22px;
     font-weight: 400;
     text-align: center;
+    word-break: keep-all;
   }
 
    button{

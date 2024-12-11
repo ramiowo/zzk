@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Test from "./pages/test/Test";
 import MbtiResult from "./pages/test/MbtiResult";
@@ -8,16 +8,18 @@ import Info from "./pages/info/Info";
 const Router = () => {
   const location = useLocation();
   const hiddenHeader = ["/"];
-  const ShowHeader = !hiddenHeader.includes(location.pathname);
+  const showHeader = !hiddenHeader.includes(location.pathname);
   return (
     <>
-      {ShowHeader && <Header />}
+      <HashRouter>
+      {showHeader && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/test" element={<Test />} />
         <Route path="/mbtiresult" element={<MbtiResult />} />
         <Route path="/info" element={<Info />} />
       </Routes>
+      </HashRouter>
     </>
   );
 };
