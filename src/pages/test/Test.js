@@ -42,13 +42,6 @@ const Con = styled.div`
     padding: 0 20px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.5);
-    transition: background-color 0.3s ease;
-
-    ${(props) =>
-      props.isClicked &&
-      `
-      background-color: #EFC2CD;
-    `}
   }
 `;
 
@@ -72,7 +65,7 @@ const Test = () => {
       ...prev,
       [type]: prev[type] + 1,
     }));
-    setClickedButton(type);
+
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
@@ -92,7 +85,6 @@ const Test = () => {
           key={index}
           onClick={() => handleAnswer(option.type)}
           style={{ margin: "10px", padding: "10px 20px", fontSize: "16px" }}
-          isClicked={clickedButton === option.type}
         >
           {option.answer}
         </button>
