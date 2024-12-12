@@ -96,13 +96,12 @@ const WithWrap = styled.div`
 `;
 const ButtonGroup = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 20px;
 
   button {
     width: 170px;
     height: 48px;
-    margin: 0 10px;
     padding: 10px 20px;
     border: none;
     border-radius: 50px;
@@ -120,6 +119,21 @@ const ButtonGroup = styled.div`
     color: #ffcccc;
     border: 1px solid #ffcccc;
   }
+`;
+
+const TotalButton = styled.button`
+  all: unset;
+  box-sizing: border-box;
+  width: 100%;
+  height: 55px;
+  background-color: #eeadbd;
+  border-radius: 50px;
+  color: #f5f5f5;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
 `;
 
 const Info = () => {
@@ -224,7 +238,7 @@ const Info = () => {
             </button>
           </ButtonGroup>
         </WithWrap>
-        <button type="submit">우리의 궁합 보기</button>
+        <TotalButton type="submit">우리의 궁합 보기</TotalButton>
       </form>
     </Container>
   );
