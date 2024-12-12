@@ -1,29 +1,32 @@
 import { useLocation } from "react-router-dom";
 import TestResult from "./data/TestResult";
 import styled from "styled-components";
+import resultheart from "../../imgs/resultheart.svg"
 
 const Con = styled.div`
   width: 100%;
   max-width: 393px;
   margin: 0 auto;
-  height: 100vh;
   justify-content: center;
   display: flex;
   align-items: center;
   flex-direction: column;
   h4 {
-    font-size: 16px;
-    margin-bottom: 30px;
+    margin-top: 40px;
+    font-size: 26px;
+    margin-bottom: 100px;
+    color: white;
   }
   h2 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
   }
   h1 {
     color: #c55972;
     margin-top: 15px;
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 700;
+    margin-bottom: 150px;
   }
 
   div {
@@ -44,8 +47,20 @@ const Con = styled.div`
   }
 
   p {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 30px;
+    line-height: 26px;
+  }
+
+  h3{
+    font-size: 18px;
+   line-height: 30px;
+  }
+
+  img{
+    position: absolute;
+    z-index: -1;
+    top: 50px;
   }
 `;
 
@@ -66,10 +81,10 @@ const MbtiResult = () => {
 
   return (
     <Con>
+      <img src={resultheart} alt="bgheart" />
       <h4>나의 MBTI는</h4>
       <h2>{result.nickname}</h2>
       <h1>{result.type}</h1>
-      <div>이미지</div>
       <ul>
         {result.keywords.map((keyword, index) => (
           <li key={index}>#{keyword}</li>
