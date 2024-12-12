@@ -4,7 +4,7 @@ import Test from "./pages/test/Test";
 import MbtiResult from "./pages/test/MbtiResult";
 import Header from "./components/Header";
 import Info from "./pages/info/Info";
-import Result from "./pages/results/Result";
+import TotalResult from "./pages/results/TotalResult";
 
 const Router = () => {
   const location = useLocation();
@@ -18,7 +18,7 @@ const Router = () => {
         <Route path="/test" element={<Test />} />
         <Route path="/mbtiresult" element={<MbtiResult />} />
         <Route path="/info" element={<Info />} />
-        <Route path="/totalresult" element={<Result />} />
+        <Route path="/totalresult" element={<TotalResult />} />
       </Routes>
     </>
   );
