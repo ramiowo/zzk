@@ -60,10 +60,12 @@ const TotalScore = styled.div`
 const Tabs = styled.div`
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-top: 40px;
+  margin-bottom: 30px;
 
   button {
+    width: 100px;
     background: none;
     border: none;
     font-size: 16px;
@@ -74,8 +76,11 @@ const Tabs = styled.div`
 
     &.active {
       color: black;
-      font-weight: bold;
+      font-weight: 600;
       border-bottom: 2px solid #eeadbd;
+      background-color: rgba(255, 255, 255, 0.4);
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
     }
   }
 `;
@@ -84,6 +89,7 @@ const TabContent = styled.div`
   text-align: center;
   margin-top: 10px;
   .disc {
+    margin-bottom: 40px;
     line-height: 22px;
     font-size: 16px;
     padding: 0 16px;
@@ -95,7 +101,7 @@ const TabContent = styled.div`
     justify-content: center;
     align-items: center;
     gap: 40px;
-    margin-bottom: 14px;
+    margin-bottom: 30px;
 
     p {
       margin-bottom: 8px;
@@ -115,6 +121,9 @@ const TabContent = styled.div`
   p {
     font-size: 16px;
     color: #555;
+  }
+  span {
+    color: #ee6989;
   }
 `;
 
@@ -154,7 +163,7 @@ const ScoreBar = styled.div`
 
       .filled {
         height: 100%;
-        background-color: #EE6989;
+        background-color: #ee6989;
         border-radius: 10px 0 0 10px;
       }
     }
@@ -249,7 +258,6 @@ const TotalResult = () => {
     ],
   };
 
-
   const options = {
     cutout: "70%",
     plugins: {
@@ -294,7 +302,6 @@ const TotalResult = () => {
                 <p className="name">{partnerName}</p>
               </div>
             </div>
-
             <p className="disc">
               {relationshipType === "친구"
                 ? mbtiResult?.description.friendship
@@ -328,7 +335,7 @@ const TotalResult = () => {
       <TotalScore>
         <h2>전체 궁합</h2>
         <div className="doughnut-chart">
-        <Doughnut ref={chartRef} data={data} options={options} />
+          <Doughnut ref={chartRef} data={data} options={options} />
           <div className="score-label">{totalScore}점</div>
         </div>
       </TotalScore>

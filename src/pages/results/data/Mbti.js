@@ -1836,6 +1836,149 @@ const Mbti = [
         "연인 관계에서는 두 INFP가 서로를 격려하며 매우 안정적이고 감정적으로 깊은 관계를 유지할 가능성이 높습니다.",
     },
   },
+  {
+    pair: ["ENTP", "ENFP"],
+    friendshipScore: 90,
+    romanticScore: 95,
+    description: {
+      friendship:
+        "ENTP와 ENFP는 매우 창의적이고 활기찬 친구 관계를 형성합니다. 서로의 아이디어와 에너지를 공유하며 즐거운 대화를 나눌 수 있습니다.",
+      romantic:
+        "연인 관계에서는 두 사람이 감정적으로 깊이 연결되며 서로를 격려하고 지원하는 이상적인 관계를 형성할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "ENTJ"],
+    friendshipScore: 85,
+    romanticScore: 88,
+    description: {
+      friendship:
+        "ENTP와 ENTJ는 서로의 추진력과 창의적인 사고를 공유하며 매우 생산적인 친구 관계를 형성합니다.",
+      romantic:
+        "연인 관계에서는 서로를 자극하며 목표를 공유할 수 있는 매우 조화로운 관계를 유지할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "INFJ"],
+    friendshipScore: 90,
+    romanticScore: 95,
+    description: {
+      friendship:
+        "ENTP와 INFJ는 서로에게 영감을 주며 지적인 대화를 즐길 수 있는 친구 관계를 형성합니다.",
+      romantic:
+        "연인 관계에서는 두 사람이 서로를 보완하며 감정적으로 깊은 유대감을 형성할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "ISTJ"],
+    friendshipScore: 70,
+    romanticScore: 75,
+    description: {
+      friendship:
+        "ENTP와 ISTJ는 성격 차이로 인해 초기에는 충돌할 수 있지만, 서로를 이해하면 균형 잡힌 친구 관계를 형성할 수 있습니다.",
+      romantic:
+        "연인 관계에서는 서로의 강점을 존중하며 안정적이고 보완적인 관계를 형성할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "ISFJ"],
+    friendshipScore: 75,
+    romanticScore: 80,
+    description: {
+      friendship:
+        "ENTP와 ISFJ는 서로의 차이를 이해하고 존중하며 따뜻한 친구 관계를 형성할 수 있습니다.",
+      romantic:
+        "연인 관계에서는 두 사람이 서로의 강점을 보완하며 안정적이고 조화로운 관계를 유지할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "INTJ"],
+    friendshipScore: 85,
+    romanticScore: 90,
+    description: {
+      friendship:
+        "ENTP와 INTJ는 지적인 대화를 즐기며 서로의 창의적 사고와 전략적 사고를 보완하는 친구 관계를 형성할 수 있습니다.",
+      romantic:
+        "연인 관계에서는 두 사람이 서로를 자극하며 매우 발전적이고 안정적인 관계를 형성할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "INTP"],
+    friendshipScore: 90,
+    romanticScore: 88,
+    description: {
+      friendship:
+        "ENTP와 INTP는 서로의 창의성과 지적 호기심을 공유하며 매우 흥미로운 친구 관계를 형성합니다.",
+      romantic:
+        "연인 관계에서는 두 사람이 서로의 아이디어를 존중하며 감정적으로도 안정적인 관계를 유지할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "ISFP"],
+    friendshipScore: 70,
+    romanticScore: 75,
+    description: {
+      friendship:
+        "ENTP와 ISFP는 성향 차이로 인해 초기에는 충돌할 수 있지만, 서로를 이해하면 따뜻한 친구 관계를 형성할 수 있습니다.",
+      romantic:
+        "연인 관계에서는 서로의 성향 차이를 극복하려는 노력을 통해 안정적이고 조화로운 관계를 형성할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "ESTJ"],
+    friendshipScore: 80,
+    romanticScore: 85,
+    description: {
+      friendship:
+        "ENTP와 ESTJ는 서로의 목표 지향성과 창의적인 사고를 공유하며 매우 협력적인 친구 관계를 형성할 수 있습니다.",
+      romantic:
+        "연인 관계에서는 두 사람이 서로를 보완하며 실용적이고 감정적으로 안정된 관계를 유지할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "ESFJ"],
+    friendshipScore: 75,
+    romanticScore: 80,
+    description: {
+      friendship:
+        "ENTP와 ESFJ는 서로의 차이를 이해하며 균형 잡힌 친구 관계를 형성할 수 있습니다.",
+      romantic:
+        "연인 관계에서는 두 사람이 서로를 보완하며 감정적으로 따뜻하고 안정적인 관계를 형성할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "ESTP"],
+    friendshipScore: 85,
+    romanticScore: 90,
+    description: {
+      friendship:
+        "ENTP와 ESTP는 서로의 에너지와 모험심을 공유하며 매우 다이내믹한 친구 관계를 형성할 수 있습니다.",
+      romantic:
+        "연인 관계에서는 두 사람이 서로를 자극하며 매우 활기차고 감정적으로도 안정적인 관계를 유지할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "ESFP"],
+    friendshipScore: 85,
+    romanticScore: 88,
+    description: {
+      friendship:
+        "ENTP와 ESFP는 서로의 유머와 활기찬 에너지를 공유하며 매우 즐거운 친구 관계를 형성할 수 있습니다.",
+      romantic:
+        "연인 관계에서는 두 사람이 감정적으로 깊이 연결되며 매우 다이내믹하고 따뜻한 관계를 유지할 가능성이 높습니다.",
+    },
+  },
+  {
+    pair: ["ENTP", "INFP"],
+    friendshipScore: 85,
+    romanticScore: 90,
+    description: {
+      friendship:
+        "ENTP와 INFP는 서로의 이상과 아이디어를 공유하며 매우 지적이고 따뜻한 친구 관계를 형성할 수 있습니다.",
+      romantic:
+        "연인 관계에서는 두 사람이 서로를 격려하며 감정적으로 깊이 연결된 안정적인 관계를 유지할 가능성이 높습니다.",
+    },
+  },
 ];
 
 export default Mbti;
