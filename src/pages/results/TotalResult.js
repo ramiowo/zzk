@@ -95,12 +95,14 @@ const ScoreBar = styled.div`
     }
 
     .bar {
+      width: 100%;
+      max-width: 295px;
+      height: 15px;
       flex: 1;
-      height: 20px;
-      background-color: rgba(255, 182, 193, 0.5);
+      background-color: rgb(255, 255, 255);
       position: relative;
 
-      &::after {
+      .scoreBar {
         content: "";
         position: absolute;
         top: 0;
@@ -191,7 +193,9 @@ const TotalResult = () => {
         return (
           <TabContent>
             <h1>별자리 궁합</h1>
-            <p>별자리: {userZodiac} & {partnerZodiac}</p>
+            <p>
+              별자리: {userZodiac} & {partnerZodiac}
+            </p>
             <p>점수: {zodiacScore}점</p>
             <p>
               {relationshipType === "친구" ? result?.friendship : result?.love}
@@ -202,7 +206,9 @@ const TotalResult = () => {
         return (
           <TabContent>
             <h1>MBTI 궁합</h1>
-            <p>MBTI: {userMbti} & {partnerMbti}</p>
+            <p>
+              MBTI: {userMbti} & {partnerMbti}
+            </p>
             <p>점수: {mbtiScore}점</p>
             <p>
               {relationshipType === "친구"
@@ -237,17 +243,24 @@ const TotalResult = () => {
       <ScoreBar>
         <div className="bar-item">
           <h4>별자리</h4>
-          <div className="bar" style={{ width: `${zodiacScore}%` }}></div>
+          <div className="bar">
+            <div className="scoreBar" style={{ width: `${zodiacScore}%` }} />
+          </div>
+
           <span>{zodiacScore}점</span>
         </div>
         <div className="bar-item">
           <h4>MBTI</h4>
-          <div className="bar" style={{ width: `${mbtiScore}%` }}></div>
+          <div className="bar">
+            <div className="scoreBar" style={{ width: `${mbtiScore}%` }} />
+          </div>
           <span>{mbtiScore}점</span>
         </div>
         <div className="bar-item">
           <h4>이름</h4>
-          <div className="bar" style={{ width: `${nameScore}%` }}></div>
+          <div className="bar">
+            <div className="scoreBar" style={{ width: `${nameScore}%` }}></div>
+          </div>
           <span>{nameScore}점</span>
         </div>
       </ScoreBar>
