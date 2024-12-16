@@ -11,9 +11,10 @@ const Con = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  text-align: center;
   h4 {
     margin-top: 40px;
-    font-size: 26px;
+    font-size: 23px;
     margin-bottom: 100px;
     color: white;
   }
@@ -47,36 +48,46 @@ const Con = styled.div`
   }
 
   p {
-    font-size: 18px;
-    margin-bottom: 30px;
+    padding: 0 20px;
+    font-size: 16px;
+    margin-bottom: 40px;
     line-height: 26px;
   }
 
   h3{
     font-size: 18px;
    line-height: 30px;
+   opacity: 0.5;
+   margin-bottom: 5px;
+  }
+
+  h5{
+    font-size: 18px;
+    color: #c55972;
+    font-weight: bold;    
+    opacity: 0.8;
   }
 
   img{
     position: absolute;
     z-index: -1;
     top: 50px;
+    opacity: 0.8;
+    filter: blur(2px);
   }
 `;
 
 const MbtiResult = () => {
   const location = useLocation();
-  const { answers } = location.state; // Test 컴포넌트에서 전달받은 점수
+  const { answers } = location.state;
   const mbtiData = TestResult();
 
-  // MBTI 결과 계산
   const mbti =
     (answers.E >= answers.I ? "E" : "I") +
     (answers.S >= answers.N ? "S" : "N") +
     (answers.T >= answers.F ? "T" : "F") +
     (answers.J >= answers.P ? "J" : "P");
 
-  // 결과 데이터 찾기
   const result = mbtiData.find((item) => item.type === mbti);
 
   return (
@@ -91,8 +102,8 @@ const MbtiResult = () => {
         ))}
       </ul>
       <p>{result.description}</p>
-      <h3>잘 맞는 MBTI:</h3>
-      <h3>{result.compatibleMBTI.join(", ")}</h3>
+      <h3>잘 맞는 MBTI</h3>
+      <h5>{result.compatibleMBTI.join(", ")}</h5>
     </Con>
   );
 };

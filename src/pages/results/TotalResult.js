@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { NameData } from "./data/NameData";
 import { useLocation } from "react-router-dom";
@@ -125,7 +125,7 @@ const ScoreBar = styled.div`
 
       .filled {
         height: 100%;
-        background-color: #ffb6c1;
+        background-color: #EE6989;
         border-radius: 10px 0 0 10px;
       }
     }
@@ -147,6 +147,8 @@ justify-content: space-between;
 
 const TotalResult = () => {
   const location = useLocation();
+  const chartRef = useRef(null);
+  const [gradient, setGradient] = useState(null);
   const {
     myName,
     partnerName,
@@ -193,15 +195,26 @@ const TotalResult = () => {
 
   const totalScore = ((zodiacScore + mbtiScore + nameScore) / 3).toFixed(0);
 
+  useEffect(() => {
+    if (chartRef.current) {
+      const ctx = chartRef.current.ctx;
+      const gradient = ctx.createLinearGradient(0, 0, 0, 150);
+      gradient.addColorStop(0, "#EEADBD");
+      gradient.addColorStop(1, "#EE6989");
+      setGradient(gradient);
+    }
+  }, []);
+
   const data = {
     datasets: [
       {
         data: [totalScore, 100 - totalScore],
-        backgroundColor: ["#FFB6C1", "#F7E9ED"],
+        backgroundColor: [gradient || "#FFB6C1", "#F7E9ED"],
         borderWidth: 0,
       },
     ],
   };
+
 
   const options = {
     cutout: "70%",
@@ -256,7 +269,7 @@ const TotalResult = () => {
       <TotalScore>
         <h2>전체 궁합</h2>
         <div className="doughnut-chart">
-          <Doughnut data={data} options={options} />
+        <Doughnut ref={chartRef} data={data} options={options} />
           <div className="score-label">{totalScore}점</div>
         </div>
       </TotalScore>
