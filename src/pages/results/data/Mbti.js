@@ -1,4 +1,4 @@
-export const Mbti = [
+const Mbti = [
   {
     pair: ["ENFP", "ENTJ"],
     friendshipScore: 85,
@@ -1837,3 +1837,5 @@ export const Mbti = [
     },
   },
 ];
+
+export default Mbti;

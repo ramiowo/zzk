@@ -34,14 +34,19 @@ const Container = styled.section`
 const Title = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
-  gap: 60px;
+  justify-content: space-evenly;
+  
   margin-top: 40px;
   margin-bottom: 12px;
+
+  img{
+    position: absolute;
+  }
 
   p {
     font-size: 22px;
     font-weight: 300;
+    margin-left: 10px;
   }
 `;
 
@@ -154,6 +159,10 @@ const Info = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const sanitizedUserMbti = userMbti.trim().toUpperCase();
+  const sanitizedPartnerMbti = partnerMbti.trim().toUpperCase();
+
     navigate("/totalresult", {
       state: {
         myName,
@@ -161,8 +170,8 @@ const Info = () => {
         userBirthday,
         partnerBirthday,
         relationshipType,
-        userMbti,
-        partnerMbti,
+        userMbti: sanitizedUserMbti,
+      partnerMbti: sanitizedPartnerMbti,
       },
     });
   };
