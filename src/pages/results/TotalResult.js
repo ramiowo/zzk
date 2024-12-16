@@ -37,7 +37,7 @@ const TotalScore = styled.div`
 
   h2 {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .doughnut-chart {
