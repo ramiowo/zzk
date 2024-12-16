@@ -1,6 +1,6 @@
 import React from "react";
 import { NameData } from "./data/NameData";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { getZodiac, StarData } from "./data/Star";
 
