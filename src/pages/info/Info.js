@@ -141,6 +141,8 @@ const Info = () => {
   const [partnerName, setPartnerName] = useState("");
   const [userBirthday, setUserBirthday] = useState("");
   const [partnerBirthday, setPartnerBirthday] = useState("");
+  const [userMbti, setUserMbti] = useState("");
+  const [partnerMbti, setPartnerMbti] = useState("");
   const [relationshipType, setRelationshipType] = useState("친구");
   const navigate = useNavigate();
 
@@ -153,6 +155,8 @@ const Info = () => {
         userBirthday,
         partnerBirthday,
         relationshipType,
+        userMbti,
+        partnerMbti,
       },
     });
   };
@@ -208,14 +212,14 @@ const Info = () => {
             <input
               type="text"
               placeholder="나의 MBTI"
-              value={userBirthday}
-              onChange={(e) => setUserBirthday(e.target.value)}
+              value={userMbti}
+              onChange={(e) => setUserMbti(e.target.value)}
             />
             <input
               type="text"
               placeholder="짝꿍 MBTI"
-              value={partnerBirthday}
-              onChange={(e) => setPartnerBirthday(e.target.value)}
+              value={partnerMbti}
+              onChange={(e) => setPartnerMbti(e.target.value)}
             />
           </Mbti>
         </MbtiWrap>

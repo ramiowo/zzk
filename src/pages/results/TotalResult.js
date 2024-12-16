@@ -16,6 +16,8 @@ const Name = styled.div``;
 
 const Star = styled.div``;
 
+const Mbti = styled.div``;
+
 const TotalResult = () => {
   const location = useLocation();
   const {
@@ -23,6 +25,8 @@ const TotalResult = () => {
     partnerName,
     userBirthday,
     partnerBirthday,
+    useMbti,
+    partnerMbti,
     relationshipType,
   } = location.state || {};
 
@@ -75,6 +79,7 @@ const TotalResult = () => {
           )}
         </div>
       </Star>
+      <Mbti></Mbti>
     </Container>
   );
 };
