@@ -21,8 +21,13 @@ const Container = styled.section`
     border-radius: 50px;
     background-color: rgba(255, 255, 255, 0.3);
     font-size: 14px;
-    padding: 0 10px;
+    padding: 0 15px;
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.3);
+    }
   }
+  
   h3 {
     margin-top: 30px;
     font-size: 18px;
