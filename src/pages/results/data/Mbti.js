@@ -142,6 +142,24 @@ const Mbti = [
         "friendship": "ENFP와 ESTJ는 친구로서 서로 다른 관점을 통해 성장할 수 있는 관계입니다. ENFP의 창의성과 ESTJ의 실용성이 충돌할 수 있지만, 협력을 통해 강한 팀워크를 만들 수 있습니다.",
         "romantic": "연인 관계에서는 ENFP의 자유로움과 ESTJ의 책임감이 균형을 맞출 수 있습니다. 서로의 차이를 이해하고 조화를 이루려는 노력이 있다면 성공적인 관계를 유지할 수 있습니다."
       }
+    },
+    {
+      "pair": ["ENFP", "INTJ"],
+      "friendshipScore": 85,
+      "romanticScore": 90,
+      "description": {
+        "friendship": "ENFP와 INTJ는 서로의 강점이 매우 잘 조화를 이루는 친구 관계를 형성할 수 있습니다. ENFP는 창의적이고 열정적이며, INTJ는 전략적이고 계획적입니다. 서로의 다름을 존중하고 함께 프로젝트나 목표를 추구하며 성장할 수 있습니다.",
+        "romantic": "연인 관계에서는 ENFP의 열정과 자유로움이 INTJ의 안정적이고 체계적인 성향과 완벽히 상호 보완적입니다. 두 사람은 서로에게 영감을 주며, 깊은 유대감을 형성할 수 있는 관계입니다."
+      }
+    },
+    {
+      "pair": ["ENFP", "INFP"],
+      "friendshipScore": 95,
+      "romanticScore": 90,
+      "description": {
+        "friendship": "ENFP와 INFP는 친구로서 감정적으로 매우 깊이 연결될 수 있는 관계를 형성합니다. ENFP는 INFP의 내향적이고 깊이 있는 사고를 존중하며, INFP는 ENFP의 활발함과 창의성을 즐길 수 있습니다.",
+        "romantic": "연인 관계에서는 ENFP와 INFP가 서로의 감정적 깊이를 이해하고 지원하는 관계를 형성할 수 있습니다. 두 사람은 서로를 격려하며 꿈과 목표를 공유할 수 있습니다."
+      }
     }
   ]
   
