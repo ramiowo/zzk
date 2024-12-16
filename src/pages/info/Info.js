@@ -46,6 +46,7 @@ const Title = styled.div`
 `;
 
 const UnderLine = styled.div`
+margin: 0 auto;
   width: 296px;
   height: 1px;
   /* margin-bottom: 28px; */
@@ -111,13 +112,16 @@ const ButtonGroup = styled.div`
 
   .active {
     background-color: #ffcccc;
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.3);
+    border: 2px solid rgba(255,255,255,0.4);
     color: #fff;
   }
 
   .inactive {
     background-color: #fff;
     color: #ffcccc;
-    border: 1px solid #ffcccc;
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.3);
+    border: 2px solid rgba(255, 204, 204, 0.4);
   }
 `;
 
