@@ -8,13 +8,54 @@ const Container = styled.section`
   width: 100%;
   max-width: 393px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 `;
 
-const TotalScore = styled.div``;
+const TotalScore = styled.div`
+margin-top: 40px;
+h2{
+  font-size: 28px;
+}
+
+
+`;
 
 const Name = styled.div``;
 
 const Star = styled.div``;
+
+const Mbti = styled.div``;
+
+const DetailScore = styled.div`
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+h2{
+  margin-bottom: 10px;
+}
+`;
+
+const Bar = styled.div`
+width: 100%;
+margin-bottom: 10px;
+h2{
+  margin-bottom: 10px;
+}
+`;
+
+const Wrap = styled.div`
+width: 100%;
+display: flex;
+div{
+  height: 20px;
+  width: 100%;
+  background-color: rgba(255,255,255,0.5);
+}
+`;
 
 const TotalResult = () => {
   const location = useLocation();
@@ -23,6 +64,8 @@ const TotalResult = () => {
     partnerName,
     userBirthday,
     partnerBirthday,
+    useMbti,
+    partnerMbti,
     relationshipType,
   } = location.state || {};
 
@@ -43,6 +86,31 @@ const TotalResult = () => {
       <TotalScore>
         <h2>전체 궁합</h2>
       </TotalScore>
+
+      <DetailScore>
+        <h2>항목별 궁합</h2>
+        <Bar>
+          <h2>별자리</h2>
+          <Wrap>
+          <div></div>
+          <h3>점</h3>
+          </Wrap>
+        </Bar>
+        <Bar>
+          <h2>MBTI</h2>
+          <Wrap>
+          <div></div>
+          <h3>점</h3>
+          </Wrap>
+        </Bar>
+        <Bar>
+          <h2>이름</h2>
+          <Wrap>
+          <div></div>
+          <h3>점</h3>
+          </Wrap>
+        </Bar>
+      </DetailScore>
       <Name>
         <p>
           나: {myName} | 상대: {partnerName}
@@ -75,6 +143,7 @@ const TotalResult = () => {
           )}
         </div>
       </Star>
+      <Mbti></Mbti>
     </Container>
   );
 };
