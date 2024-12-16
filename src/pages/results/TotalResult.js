@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NameData } from "./data/NameData";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
@@ -15,46 +15,90 @@ const Container = styled.section`
 `;
 
 const TotalScore = styled.div`
-margin-top: 40px;
-h2{
-  font-size: 28px;
-}
-
-
+  margin-top: 40px;
+  h2 {
+    font-size: 28px;
+  }
 `;
 
-const Name = styled.div``;
+const Tabs = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
 
-const Star = styled.div``;
+  button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    color: #333;
 
-const Mbti = styled.div``;
+    &.active {
+      color: #ffb6c1;
+      border-bottom: 2px solid #ffb6c1;
+    }
+  }
+`;
 
 const DetailScore = styled.div`
-width: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
-h2{
-  margin-bottom: 10px;
-}
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    margin-bottom: 10px;
+  }
 `;
 
 const Bar = styled.div`
-width: 100%;
-margin-bottom: 10px;
-h2{
+  width: 100%;
   margin-bottom: 10px;
-}
+  h2 {
+    margin-bottom: 10px;
+  }
 `;
 
 const Wrap = styled.div`
-width: 100%;
-display: flex;
-div{
-  height: 20px;
   width: 100%;
-  background-color: rgba(255,255,255,0.5);
-}
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  div {
+    height: 20px;
+    flex: 1;
+    background-color: rgba(255, 182, 193, 0.5);
+    position: relative;
+    &::after {
+      content: "";
+      height: 100%;
+      width: ${({ width }) => width || "0%"};
+      background-color: #ffb6c1;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+`;
+
+const TabContent = styled.div`
+  text-align: center;
+  margin-top: 20px;
+  h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 16px;
+    color: #555;
+  }
 `;
 
 const TotalResult = () => {
@@ -69,6 +113,8 @@ const TotalResult = () => {
     relationshipType,
   } = location.state || {};
 
+  const [activeTab, setActiveTab] = useState("zodiac");
+
   const userZodiac = getZodiac(userBirthday);
   const partnerZodiac = getZodiac(partnerBirthday);
 
@@ -78,72 +124,82 @@ const TotalResult = () => {
       (data.signs[0] === userZodiac && data.signs[1] === partnerZodiac) ||
       (data.signs[0] === partnerZodiac && data.signs[1] === userZodiac)
   );
-  // 궁합 계산
+
   const { score, message } = NameData(myName, partnerName);
-  // console.log(myName);
+
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case "zodiac":
+        return (
+          <TabContent>
+            <h1>별자리 궁합</h1>
+            {result ? (
+              <>
+                <p>별자리: {result.signs.join(" & ")}</p>
+                <p>
+                  {relationshipType === "친구"
+                    ? result.friendship
+                    : result.love}
+                </p>
+                <p>
+                  점수: {relationshipType === "친구"
+                    ? result.friendshipScore
+                    : result.loveScore}
+                  점
+                </p>
+              </>
+            ) : (
+              <p>별자리 궁합 데이터를 찾을 수 없습니다.</p>
+            )}
+          </TabContent>
+        );
+      case "mbti":
+        return (
+          <TabContent>
+            <h1>MBTI 궁합</h1>
+            <p>MBTI 데이터는 아직 준비 중입니다.</p>
+          </TabContent>
+        );
+      case "name":
+        return (
+          <TabContent>
+            <h1>이름 궁합</h1>
+            <p>이름 점수: {score}점</p>
+            <p>{message}</p>
+          </TabContent>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <Container>
       <TotalScore>
         <h2>전체 궁합</h2>
+        <h3>{((score + (result?.loveScore || 0)) / 2).toFixed(0)}점</h3>
       </TotalScore>
-
-      <DetailScore>
-        <h2>항목별 궁합</h2>
-        <Bar>
-          <h2>별자리</h2>
-          <Wrap>
-          <div></div>
-          <h3>점</h3>
-          </Wrap>
-        </Bar>
-        <Bar>
-          <h2>MBTI</h2>
-          <Wrap>
-          <div></div>
-          <h3>점</h3>
-          </Wrap>
-        </Bar>
-        <Bar>
-          <h2>이름</h2>
-          <Wrap>
-          <div></div>
-          <h3>점</h3>
-          </Wrap>
-        </Bar>
-      </DetailScore>
-      <Name>
-        <p>
-          나: {myName} | 상대: {partnerName}
-        </p>
-        <p>궁합 점수: {score}점</p>
-        <p>{message}</p>
-      </Name>
-      <Star>
-        <div style={{ textAlign: "center", marginTop: "20px" }}>
-          <h1>
-            {myName}와 {partnerName}의 궁합
-          </h1>
-          {result ? (
-            <>
-              <h2>{result.signs.join(" & ")}</h2>
-              {relationshipType === "친구" ? (
-                <>
-                  <p>{result.friendship}</p>
-                  <p>{result.friendshipScore}점</p>
-                </>
-              ) : (
-                <>
-                  <p>{result.love}</p>
-                  <p>{result.loveScore}점</p>
-                </>
-              )}
-            </>
-          ) : (
-            <p>별자리 궁합 데이터를 찾을 수 없습니다.</p>
-          )}
-        </div>
-      </Star>
-      <Mbti></Mbti>
+      <Tabs>
+        <button
+          className={activeTab === "zodiac" ? "active" : ""}
+          onClick={() => setActiveTab("zodiac")}
+        >
+          별자리
+        </button>
+        <button
+          className={activeTab === "mbti" ? "active" : ""}
+          onClick={() => setActiveTab("mbti")}
+        >
+          MBTI
+        </button>
+        <button
+          className={activeTab === "name" ? "active" : ""}
+          onClick={() => setActiveTab("name")}
+        >
+          이름
+        </button>
+      </Tabs>
+      {renderTabContent()}
     </Container>
   );
 };

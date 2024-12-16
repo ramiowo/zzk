@@ -92,6 +92,7 @@ const Mbti = styled.div`
 const WithWrap = styled.div`
   margin-top: 40px;
   h3 {
+    margin-left: 0;
     text-align: center;
     margin-left: 0;
   }
@@ -99,9 +100,11 @@ const WithWrap = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   justify-content: space-between;
+  font-family: "SCDream";
   margin-top: 20px;
 
   button {
+    font-family: "SCDream";
     width: 170px;
     height: 48px;
     padding: 10px 20px;
@@ -137,7 +140,7 @@ const TotalButton = styled.button`
   font-size: 20px;
   font-weight: 500;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 50px;
   border: 2px solid rgba(255, 255, 255, 0.4);
 `;
 
