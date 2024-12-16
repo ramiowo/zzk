@@ -19,12 +19,12 @@ const Container = styled.section`
 `;
 
 const TotalScore = styled.div`
-  margin-top: 40px;
+  margin-top: 30px;
   text-align: center;
 
   h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 20px;
   }
 
   .doughnut-chart {
@@ -46,7 +46,7 @@ const TotalScore = styled.div`
 const Tabs = styled.div`
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 20px;
 
   button {
@@ -56,11 +56,13 @@ const Tabs = styled.div`
     cursor: pointer;
     padding: 10px;
     color: #333;
+    font-family: "SCDream";
 
     &.active {
       color: black;
       font-weight: bold;
       border-bottom: 2px solid #eeadbd;
+      font-family: "SCDream";
     }
   }
 `;
@@ -83,14 +85,15 @@ const TabContent = styled.div`
 const ScoreBar = styled.div`
   width: 100%;
   margin-top: 20px;
+  margin-bottom: 30px;
 
   .bar-item {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     margin-bottom: 10px;
 
     h4 {
-      width: 100px;
       font-size: 16px;
     }
 
@@ -119,6 +122,12 @@ const ScoreBar = styled.div`
       margin-left: 10px;
     }
   }
+`;
+
+const Wrap = styled.div`
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
 `;
 
 const TotalResult = () => {
@@ -243,25 +252,34 @@ const TotalResult = () => {
       <ScoreBar>
         <div className="bar-item">
           <h4>별자리</h4>
-          <div className="bar">
-            <div className="scoreBar" style={{ width: `${zodiacScore}%` }} />
-          </div>
+          <Wrap>
+            <div className="bar">
+              <div className="scoreBar" style={{ width: `${zodiacScore}%` }} />
+            </div>
 
-          <span>{zodiacScore}점</span>
+            <span>{zodiacScore}점</span>
+          </Wrap>
         </div>
         <div className="bar-item">
           <h4>MBTI</h4>
-          <div className="bar">
-            <div className="scoreBar" style={{ width: `${mbtiScore}%` }} />
-          </div>
-          <span>{mbtiScore}점</span>
+          <Wrap>
+            <div className="bar">
+              <div className="scoreBar" style={{ width: `${mbtiScore}%` }} />
+            </div>
+            <span>{mbtiScore}점</span>
+          </Wrap>
         </div>
         <div className="bar-item">
           <h4>이름</h4>
-          <div className="bar">
-            <div className="scoreBar" style={{ width: `${nameScore}%` }}></div>
-          </div>
-          <span>{nameScore}점</span>
+          <Wrap>
+            <div className="bar">
+              <div
+                className="scoreBar"
+                style={{ width: `${nameScore}%` }}
+              ></div>
+            </div>
+            <span>{nameScore}점</span>
+          </Wrap>
         </div>
       </ScoreBar>
 
