@@ -7,10 +7,14 @@ export const NameData = (name1, name2) => {
     (sum, char) => sum + char.charCodeAt(0),
     0
   );
-  const compatibilityScore = Math.abs(score1 - score2) % 100;
+  let compatibilityScore = Math.abs(score1 - score2) % 100;
 
-  if (compatibilityScore < 40) {
-    compatibilityScore;
+  if (compatibilityScore < 20) {
+    compatibilityScore += 30;
+  } else if (compatibilityScore < 30) {
+    compatibilityScore += 25;
+  } else if (compatibilityScore < 40) {
+    compatibilityScore += 20;
   }
 
   let message = "";
