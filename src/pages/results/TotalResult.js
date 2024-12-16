@@ -16,10 +16,23 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+`;
+
+const BackColor = styled.div`
+  width: 308px;
+  height: 308px;
+  position: absolute;
+  left: 43px;
+  top: 160px;
+  z-index: -1;
+  border-radius: 50%;
+  background-color: rgba(243, 147, 171, 0.3);
+  filter: blur(50px);
 `;
 
 const TotalScore = styled.div`
-  margin-top: 30px;
+  margin-top: 20px;
   text-align: center;
 
   h2 {
@@ -56,13 +69,12 @@ const Tabs = styled.div`
     cursor: pointer;
     padding: 10px;
     color: #333;
-    font-family: 'SCDream';
+    font-family: "SCDream";
 
     &.active {
       color: black;
       font-weight: bold;
       border-bottom: 2px solid #eeadbd;
-      font-family: 'SCDream';
     }
   }
 `;
@@ -83,49 +95,54 @@ const TabContent = styled.div`
 `;
 
 const ScoreBar = styled.div`
-  width: 100%;
+  width: 345px;
   margin-top: 20px;
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 10px;
 
   .bar-item {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-bottom: 15px;
 
     h4 {
       font-size: 16px;
+      margin-bottom: 10px;
     }
 
-    .bar {
+    .bar-container {
       flex: 1;
-      height: 20px;
-      background-color: rgba(255, 182, 193, 0.5);
+      height: 15px;
+      background-color: #f7e9ed;
+      border-radius: 10px;
       position: relative;
+      margin-right: 10px;
 
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
+      .filled {
         height: 100%;
-        width: ${({ width }) => width || "0%"};
         background-color: #ffb6c1;
+        border-radius: 10px 0 0 10px;
       }
     }
 
     span {
       font-size: 14px;
       font-weight: bold;
-      margin-left: 10px;
+      min-width: 40px;
+      text-align: right;
     }
   }
 `;
 
 const Wrap = styled.div`
-margin-top: 10px;
-display: flex;
 width: 100%;
+display: flex;
+justify-content: space-between;
 `
 
 const TotalResult = () => {
@@ -235,6 +252,7 @@ const TotalResult = () => {
 
   return (
     <Container>
+      <BackColor/>
       <TotalScore>
         <h2>전체 궁합</h2>
         <div className="doughnut-chart">
@@ -247,19 +265,27 @@ const TotalResult = () => {
         <div className="bar-item">
           <h4>별자리</h4>
           <Wrap>
-            <div className="bar" style={{ width: `${zodiacScore}%` }}></div>
+          <div className="bar-container">
+            <div className="filled" style={{ width: `${zodiacScore}%` }}></div>
+          </div>
           <span>{zodiacScore}점</span>
           </Wrap>
         </div>
         <div className="bar-item">
           <h4>MBTI</h4>
-          <Wrap><div className="bar" style={{ width: `${mbtiScore}%` }}></div>
+          <Wrap>
+          <div className="bar-container">
+            <div className="filled" style={{ width: `${mbtiScore}%` }}></div>
+          </div>
           <span>{mbtiScore}점</span>
           </Wrap>
         </div>
         <div className="bar-item">
           <h4>이름</h4>
-          <Wrap><div className="bar" style={{ width: `${nameScore}%` }}></div>
+          <Wrap>
+          <div className="bar-container">
+            <div className="filled" style={{ width: `${nameScore}%` }}></div>
+          </div>
           <span>{nameScore}점</span>
           </Wrap>
         </div>

@@ -11,6 +11,7 @@ const Container = styled.section`
   flex-direction: column;
   /* align-items: center; */
   padding: 0 16px;
+  position: relative;
   input {
     all: unset;
     box-sizing: border-box;
@@ -18,7 +19,7 @@ const Container = styled.section`
     height: 48px;
     border: 1px solid #fff;
     border-radius: 50px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
     font-size: 14px;
     padding: 0 10px;
   }
@@ -149,6 +150,18 @@ const TotalButton = styled.button`
   border: 2px solid rgba(255, 255, 255, 0.4);
 `;
 
+const BackColor = styled.div`
+  width: 308px;
+  height: 308px;
+  position: absolute;
+  left: 43px;
+  top: 160px;
+  z-index: -1;
+  border-radius: 50%;
+  background-color: rgba(243, 147, 171, 0.5);
+  filter: blur(50px);
+`;
+
 const Info = () => {
   const [myName, setMyName] = useState("");
   const [partnerName, setPartnerName] = useState("");
@@ -180,6 +193,7 @@ const Info = () => {
 
   return (
     <Container>
+      <BackColor />
       <Title>
         <p>나</p>
         <img src={heart} alt="heart" />
