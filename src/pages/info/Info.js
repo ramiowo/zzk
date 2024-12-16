@@ -66,7 +66,7 @@ const Name = styled.div`
   justify-content: space-between;
 `;
 
-const StartWrap = styled.div`
+const StarWrap = styled.div`
   span {
     margin-left: 10px;
     font-size: 10px;
@@ -187,7 +187,7 @@ const Info = () => {
             />
           </Name>
         </NameWrap>
-        <StartWrap>
+        <StarWrap>
           <h3>
             생일<span>ex ) 0109</span>
           </h3>
@@ -205,7 +205,7 @@ const Info = () => {
               onChange={(e) => setPartnerBirthday(e.target.value)}
             />
           </Star>
-        </StartWrap>
+        </StarWrap>
         <MbtiWrap>
           <h3>MBTI</h3>
           <Mbti>
