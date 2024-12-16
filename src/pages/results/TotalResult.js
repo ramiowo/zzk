@@ -46,7 +46,7 @@ const TotalScore = styled.div`
 const Tabs = styled.div`
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   margin-bottom: 20px;
 
   button {
