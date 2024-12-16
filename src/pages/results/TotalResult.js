@@ -224,8 +224,6 @@ const TotalResult = () => {
     }
   };
 
-  console.log(nameScore);
-
   return (
     <Container>
       <TotalScore>

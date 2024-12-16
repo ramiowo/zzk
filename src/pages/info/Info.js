@@ -24,7 +24,7 @@ const Container = styled.section`
   }
   h3 {
     margin-top: 30px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
     margin-bottom: 10px;
     margin-left: 10px;
@@ -51,7 +51,7 @@ const Title = styled.div`
 `;
 
 const UnderLine = styled.div`
-margin: 0 auto;
+  margin: 0 auto;
   width: 296px;
   height: 1px;
   /* margin-bottom: 28px; */
@@ -95,19 +95,21 @@ const Mbti = styled.div`
 `;
 
 const WithWrap = styled.div`
-  margin-top: 60px;
+  margin-top: 40px;
   h3 {
+    margin-left: 0;
     text-align: center;
+    margin-left: 0;
   }
 `;
 const ButtonGroup = styled.div`
   display: flex;
   justify-content: space-between;
-  font-family: 'SCDream';
+  font-family: "SCDream";
   margin-top: 20px;
 
   button {
-    font-family: 'SCDream';
+    font-family: "SCDream";
     width: 170px;
     height: 48px;
     padding: 10px 20px;
@@ -119,15 +121,15 @@ const ButtonGroup = styled.div`
 
   .active {
     background-color: #ffcccc;
-    box-shadow: inset 0 0 20px rgba(255,255,255,0.3);
-    border: 2px solid rgba(255,255,255,0.4);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     color: #fff;
   }
 
   .inactive {
     background-color: #fff;
     color: #ffcccc;
-    box-shadow: inset 0 0 20px rgba(255,255,255,0.3);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3);
     border: 2px solid rgba(255, 204, 204, 0.4);
   }
 `;
@@ -143,7 +145,7 @@ const TotalButton = styled.button`
   font-size: 20px;
   font-weight: 500;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 50px;
   border: 2px solid rgba(255, 255, 255, 0.4);
 `;
 
