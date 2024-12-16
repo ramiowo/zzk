@@ -36,8 +36,9 @@ const TotalScore = styled.div`
   text-align: center;
 
   h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: 400;
   }
 
   .doughnut-chart {
@@ -81,7 +82,30 @@ const Tabs = styled.div`
 
 const TabContent = styled.div`
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  .disc {
+    line-height: 22px;
+    font-size: 16px;
+    padding: 0 16px;
+    color: #333;
+  }
+
+  .conWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 14px;
+
+    p {
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .name {
+      color: #555;
+      font-weight: 400;
+    }
+  }
 
   h1 {
     font-size: 22px;
@@ -101,6 +125,11 @@ const ScoreBar = styled.div`
   justify-content: space-between;
   flex-direction: column;
   margin-bottom: 10px;
+  .subTitle {
+    text-align: center;
+    margin: 20px 0 10px 0;
+    font-weight: 500;
+  }
 
   .bar-item {
     width: 100%;
@@ -130,20 +159,25 @@ const ScoreBar = styled.div`
       }
     }
 
-    span {
-      font-size: 14px;
-      font-weight: bold;
+    p {
+      font-size: 16px;
+      font-weight: 500;
       min-width: 40px;
       text-align: right;
+      span {
+        margin-left: 3px;
+        font-weight: 400;
+        opacity: 0.6;
+      }
     }
   }
 `;
 
 const Wrap = styled.div`
-width: 100%;
-display: flex;
-justify-content: space-between;
-`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
 
 const TotalResult = () => {
   const location = useLocation();
@@ -216,10 +250,19 @@ const TotalResult = () => {
       case "zodiac":
         return (
           <TabContent>
-            <h1>별자리 궁합</h1>
-            <p>별자리: {userZodiac} & {partnerZodiac}</p>
-            <p>점수: {zodiacScore}점</p>
-            <p>
+            <div className="conWrap">
+              <div className="myZodiac">
+                <p>{userZodiac}</p>
+                <p className="name">{myName}</p>
+              </div>
+              <span>&</span>
+              <div className="partnerZodiac">
+                <p>{partnerZodiac}</p>
+                <p className="name">{partnerName}</p>
+              </div>
+            </div>
+
+            <p className="disc">
               {relationshipType === "친구" ? result?.friendship : result?.love}
             </p>
           </TabContent>
@@ -227,10 +270,19 @@ const TotalResult = () => {
       case "mbti":
         return (
           <TabContent>
-            <h1>MBTI 궁합</h1>
-            <p>MBTI: {userMbti} & {partnerMbti}</p>
-            <p>점수: {mbtiScore}점</p>
-            <p>
+            <div className="conWrap">
+              <div className="myCon">
+                <p>{userMbti}</p>
+                <p className="name">{myName}</p>
+              </div>
+              <span>&</span>
+              <div className="partnerCon">
+                <p>{partnerMbti}</p>
+                <p className="name">{partnerName}</p>
+              </div>
+            </div>
+
+            <p className="disc">
               {relationshipType === "친구"
                 ? mbtiResult?.description.friendship
                 : mbtiResult?.description.romantic}
@@ -240,9 +292,16 @@ const TotalResult = () => {
       case "name":
         return (
           <TabContent>
-            <h1>이름 궁합</h1>
-            <p>이름 점수: {nameScore}점</p>
-            <p>{message}</p>
+            <div className="conWrap">
+              <div className="myCon">
+                <p className="name">{myName}</p>
+              </div>
+              <span style={{ marginBottom: "5px" }}>&</span>
+              <div className="partnerCon">
+                <p className="name">{partnerName}</p>
+              </div>
+            </div>
+            <p className="disc">{message}</p>
           </TabContent>
         );
       default:
@@ -252,7 +311,7 @@ const TotalResult = () => {
 
   return (
     <Container>
-      <BackColor/>
+      <BackColor />
       <TotalScore>
         <h2>전체 궁합</h2>
         <div className="doughnut-chart">
@@ -262,31 +321,44 @@ const TotalResult = () => {
       </TotalScore>
 
       <ScoreBar>
+        <h3 className="subTitle">항목별 궁합</h3>
         <div className="bar-item">
           <h4>별자리</h4>
           <Wrap>
-          <div className="bar-container">
-            <div className="filled" style={{ width: `${zodiacScore}%` }}></div>
-          </div>
-          <span>{zodiacScore}점</span>
+            <div className="bar-container">
+              <div
+                className="filled"
+                style={{ width: `${zodiacScore}%` }}
+              ></div>
+            </div>
+            <p>
+              {zodiacScore}
+              <span>점</span>
+            </p>
           </Wrap>
         </div>
         <div className="bar-item">
           <h4>MBTI</h4>
           <Wrap>
-          <div className="bar-container">
-            <div className="filled" style={{ width: `${mbtiScore}%` }}></div>
-          </div>
-          <span>{mbtiScore}점</span>
+            <div className="bar-container">
+              <div className="filled" style={{ width: `${mbtiScore}%` }}></div>
+            </div>
+            <p>
+              {mbtiScore}
+              <span>점</span>
+            </p>
           </Wrap>
         </div>
         <div className="bar-item">
           <h4>이름</h4>
           <Wrap>
-          <div className="bar-container">
-            <div className="filled" style={{ width: `${nameScore}%` }}></div>
-          </div>
-          <span>{nameScore}점</span>
+            <div className="bar-container">
+              <div className="filled" style={{ width: `${nameScore}%` }}></div>
+            </div>
+            <p>
+              {nameScore}
+              <span>점</span>
+            </p>
           </Wrap>
         </div>
       </ScoreBar>
