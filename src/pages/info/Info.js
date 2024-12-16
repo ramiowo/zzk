@@ -163,7 +163,7 @@ const BackColor = styled.div`
   top: 160px;
   z-index: -1;
   border-radius: 50%;
-  background-color: rgba(243, 147, 171, 0.5);
+  background-color: rgba(243, 147, 171, 0.4);
   filter: blur(50px);
 `;
 

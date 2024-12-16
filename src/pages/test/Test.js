@@ -35,14 +35,19 @@ const Con = styled.div`
   button {
     all: unset;
     width: 100%;
-    height: 40px;
+    height: 65px;
     border-radius: 50px;
     border: 1px solid white;
     font-family: "SCDream";
-    font-size: 50px;
+    font-size: 16px;
     padding: 0 20px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.5);
+    margin: 10px;
+
+    &:first-child {
+      background-color: #efc2cd;
+    }
   }
 `;
 
@@ -58,7 +63,6 @@ const Test = () => {
     P: 0,
   });
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  // const [clickedButton, setClickedButton] = useState(null);
   const navigate = useNavigate();
 
   const handleAnswer = (type) => {
@@ -85,7 +89,7 @@ const Test = () => {
         <button
           key={index}
           onClick={() => handleAnswer(option.type)}
-          style={{ margin: "10px", padding: "10px 20px", fontSize: "16px" }}
+          style={index === 0 ? { backgroundColor: "#EFC2CD" } : {}}
         >
           {option.answer}
         </button>

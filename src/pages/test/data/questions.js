@@ -3,7 +3,7 @@ const questions = [
     question: "드디어 기다리던 주말! 당신은?",
     options: [
       { answer: "친구들과 신나게 파티하며 불태운다!", type: "E" },
-      { answer: "침대대와 한 몸이 되어 넷플릭스 정주행.", type: "I" },
+      { answer: "침대와 한 몸이 되어 넷플릭스 정주행.", type: "I" },
     ],
   },
   {
