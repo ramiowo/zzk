@@ -8,6 +8,7 @@ import Mbti from "./data/Mbti";
 
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 import { Helmet } from "react-helmet-async";
+import useScrollTop from "../../lib/useScrollTop";
 Chart.register(ArcElement, Tooltip, Legend);
 
 const Container = styled.section`
@@ -261,6 +262,8 @@ const TotalResult = () => {
   const nameScore = score || 0;
 
   const totalScore = ((zodiacScore + mbtiScore + nameScore) / 3).toFixed(0);
+
+  useScrollTop();
 
   useEffect(() => {
     if (chartRef.current) {

@@ -3,6 +3,7 @@ import logo from "../../imgs/logo.svg";
 import homeheart from "../../imgs/homeheart.svg";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import useScrollTop from "../../lib/useScrollTop";
 
 const Container = styled.div`
   width: 100%;
@@ -85,6 +86,8 @@ const Button = styled.div`
 
 const Home = () => {
   const testNav = useNavigate();
+
+  useScrollTop();
 
   const handleWith = () => {
     testNav("/info");

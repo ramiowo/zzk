@@ -3,6 +3,7 @@ import TestResult from "./data/TestResult";
 import styled from "styled-components";
 import resultheart from "../../imgs/resultheart.svg";
 import { Helmet } from "react-helmet-async";
+import useScrollTop from "../../lib/useScrollTop";
 
 const Container = styled.section`
   width: 100%;
@@ -122,6 +123,8 @@ const MbtiResult = () => {
   const location = useLocation();
   const { answers } = location.state;
   const mbtiData = TestResult();
+
+  useScrollTop();
 
   const mbti =
     (answers.E >= answers.I ? "E" : "I") +

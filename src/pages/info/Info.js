@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import heart from "../../imgs/heart.svg";
 import styled from "styled-components";
 import { Helmet } from "react-helmet-async";
+import useScrollTop from "../../lib/useScrollTop";
 
 const Container = styled.section`
   width: 100%;
@@ -197,6 +198,8 @@ const Info = () => {
       },
     });
   };
+
+  useScrollTop();
 
   return (
     <>
