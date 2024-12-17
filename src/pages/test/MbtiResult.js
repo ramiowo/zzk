@@ -99,6 +99,23 @@ const ReButton = styled.div`
     color: #f5f5f5;
     font-weight: 500;
   }
+  border-radius: 50px;
+  line-height: 60px;
+  font-size: 20px;
+  background-color: #eeadbd;
+  border-radius: 50px;
+  color: #f5f5f5;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  margin-top: 30px;
+  margin-bottom: 50px;
+  a {
+    text-decoration: none;
+    color: white;
+  }
 `;
 
 const MbtiResult = () => {

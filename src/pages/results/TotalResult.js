@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { NameData } from "./data/NameData";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { getZodiac, StarData } from "./data/Star";
 import Mbti from "./data/Mbti";

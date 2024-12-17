@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 const Container = styled.section`
   width: 100%;
   max-width: 393px;
+  height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
