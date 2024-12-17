@@ -37,7 +37,7 @@
     "predeploy": "npm run build",
     "depoly": "gh-pages -d build"
   },
-  "homepage": "https://jen807.github.io/zzk/#/",
+  "homepage": "https://ramiowo.github.io/zzk/#/",
   "eslintConfig": {
     "extends": [
       "react-app",
