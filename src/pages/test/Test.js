@@ -3,13 +3,15 @@ import { useNavigate } from "react-router-dom";
 import questions from "./data/questions";
 import styled from "styled-components";
 import heart from "../../imgs/heart.svg";
+import blankheart from "../../imgs/blankheart.svg"
 
 const Con = styled.div`
   width: 100%;
   max-width: 393px;
+  height: 100vh;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
   padding: 16px;
@@ -19,7 +21,7 @@ const Con = styled.div`
     font-weight: 700;
     color: white;
     margin-bottom: 40px;
-    margin-top: 80px;
+    margin-top: 30px;
   }
   img {
     margin-bottom: 40px;
@@ -30,6 +32,7 @@ const Con = styled.div`
     font-weight: 400;
     text-align: center;
     word-break: keep-all;
+    line-height: 26px;
   }
 
   button {
@@ -83,7 +86,7 @@ const Test = () => {
       <h2>
         질문 {currentQuestion + 1} / {questions.length}
       </h2>
-      <img src={heart} alt="heart" />
+      <img src={blankheart} alt="heart" />
       <p>{questions[currentQuestion].question}</p>
       {questions[currentQuestion].options.map((option, index) => (
         <button

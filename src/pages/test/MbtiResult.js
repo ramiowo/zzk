@@ -66,6 +66,7 @@ const Con = styled.div`
     color: #c55972;
     font-weight: bold;    
     opacity: 0.8;
+    margin-bottom: 65px;
   }
 
   img{
