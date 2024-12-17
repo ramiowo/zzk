@@ -1,12 +1,17 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import TestResult from "./data/TestResult";
 import styled from "styled-components";
 import resultheart from "../../imgs/resultheart.svg";
 
-const Con = styled.div`
+const Container = styled.section`
   width: 100%;
   max-width: 393px;
+
   margin: 0 auto;
+  padding-bottom: 30px;
+`;
+
+const Con = styled.div`
   justify-content: center;
   display: flex;
   align-items: center;
@@ -29,6 +34,14 @@ const Con = styled.div`
     font-weight: 700;
     margin-bottom: 150px;
   }
+
+  div {
+    height: 300px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+
   ul {
     display: flex;
     li {
@@ -38,25 +51,28 @@ const Con = styled.div`
     font-size: 14px;
     margin-bottom: 10px;
   }
+
   p {
     padding: 0 20px;
     font-size: 16px;
     margin-bottom: 40px;
     line-height: 26px;
   }
+
   h3 {
     font-size: 18px;
     line-height: 30px;
     opacity: 0.5;
     margin-bottom: 5px;
   }
+
   h5 {
     font-size: 18px;
     color: #c55972;
     font-weight: bold;
     opacity: 0.8;
-    margin-bottom: 65px;
   }
+
   img {
     position: absolute;
     z-index: -1;
@@ -66,17 +82,33 @@ const Con = styled.div`
   }
 `;
 
+const ReButton = styled.div`
+  margin-top: 30px;
+
+  width: 100%;
+  height: 60px;
+  border-radius: 50px;
+  line-height: 60px;
+  font-size: 20px;
+    background-color: #eeadbd;
+  border-radius: 50px;
+  color: #f5f5f5;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+    margin-top: 30px;
+    margin-bottom: 50px;
+     a{
+      text-decoration: none;
+      color: white;
+     }
+`;
+
 const MbtiResult = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-
-  const { answers } = location.state || { answers: null };
-
-  if (!answers) {
-    navigate("/");
-    return null;
-  }
-
+  const { answers } = location.state;
   const mbtiData = TestResult();
 
   const mbti =
@@ -88,20 +120,25 @@ const MbtiResult = () => {
   const result = mbtiData.find((item) => item.type === mbti);
 
   return (
-    <Con>
-      <img src={resultheart} alt="bgheart" />
-      <h4>나의 MBTI는</h4>
-      <h2>{result.nickname}</h2>
-      <h1>{result.type}</h1>
-      <ul>
-        {result.keywords.map((keyword, index) => (
-          <li key={index}>#{keyword}</li>
-        ))}
-      </ul>
-      <p>{result.description}</p>
-      <h3>잘 맞는 MBTI</h3>
-      <h5>{result.compatibleMBTI.join(", ")}</h5>
-    </Con>
+    <Container>
+      <Con>
+        <img src={resultheart} alt="bgheart" />
+        <h4>나의 MBTI는</h4>
+        <h2>{result.nickname}</h2>
+        <h1>{result.type}</h1>
+        <ul>
+          {result.keywords.map((keyword, index) => (
+            <li key={index}>#{keyword}</li>
+          ))}
+        </ul>
+        <p>{result.description}</p>
+        <h3>잘 맞는 MBTI</h3>
+        <h5>{result.compatibleMBTI.join(", ")}</h5>
+      </Con>
+      <ReButton>
+        <Link to={"/"}>다시 검사하기</Link>
+      </ReButton>
+    </Container>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { NameData } from "./data/NameData";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { getZodiac, StarData } from "./data/Star";
 import Mbti from "./data/Mbti";
@@ -17,6 +17,29 @@ const Container = styled.section`
   flex-direction: column;
   align-items: center;
   position: relative;
+
+  .retry{
+    all: unset;
+    width: 361px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eeadbd;
+  border-radius: 50px;
+  color: #f5f5f5;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+    margin-top: 30px;
+    margin-bottom: 50px;
+     a{
+      text-decoration: none;
+      color: white;
+     }
+  }
 `;
 
 const BackColor = styled.div`
@@ -404,6 +427,13 @@ const TotalResult = () => {
         </button>
       </Tabs>
       {renderTabContent()}
+
+      <div className="retry">
+        <Link to={"/info"}>
+        다시 검사하기
+        </Link>
+      </div>
+
     </Container>
   );
 };
