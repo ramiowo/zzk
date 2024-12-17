@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import questions from "./data/questions";
 import FilledHeart from "./FilledHeart";
+import { Helmet } from "react-helmet-async";
 
 const Con = styled.div`
   width: 100%;
@@ -70,22 +71,27 @@ const Test = () => {
   };
 
   return (
-    <Con>
-      <h2>
-        질문 {currentQuestion + 1} / {questions.length}
-      </h2>
-      <FilledHeart progress={progress} />
-      <p>{questions[currentQuestion].question}</p>
-      {questions[currentQuestion].options.map((option, index) => (
-        <StyledButton
-          key={index}
-          isFirst={index === 0}
-          onClick={() => handleAnswer(option.type)}
-        >
-          {option.answer}
-        </StyledButton>
-      ))}
-    </Con>
+    <>
+      <Helmet>
+        <title>MBTI검사 | 짝짝꿍</title>
+      </Helmet>
+      <Con>
+        <h2>
+          질문 {currentQuestion + 1} / {questions.length}
+        </h2>
+        <FilledHeart progress={progress} />
+        <p>{questions[currentQuestion].question}</p>
+        {questions[currentQuestion].options.map((option, index) => (
+          <StyledButton
+            key={index}
+            isFirst={index === 0}
+            onClick={() => handleAnswer(option.type)}
+          >
+            {option.answer}
+          </StyledButton>
+        ))}
+      </Con>
+    </>
   );
 };
 

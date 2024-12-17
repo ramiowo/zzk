@@ -9,7 +9,9 @@ export const NameData = (name1, name2) => {
   );
   let compatibilityScore = Math.abs(score1 - score2) % 100;
 
-  if (compatibilityScore < 20) {
+  if (compatibilityScore < 10) {
+    compatibilityScore += 40;
+  } else if (compatibilityScore < 20) {
     compatibilityScore += 30;
   } else if (compatibilityScore < 30) {
     compatibilityScore += 25;
