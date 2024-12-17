@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import heart from "../../imgs/heart.svg";
-import { Helmet } from "react-helmet-async";
+import questions from "./data/questions";
+import FilledHeart from "./FilledHeart";
 
 const Con = styled.div`
   width: 100%;
@@ -70,27 +70,22 @@ const Test = () => {
   };
 
   return (
-    <>
-      <Helmet>
-        <title>MBTI검사 | 짝짝꿍 </title>
-      </Helmet>
-      <Con>
-        <h2>
-          질문 {currentQuestion + 1} / {questions.length}
-        </h2>
-        <img src={heart} alt="heart" />
-        <p>{questions[currentQuestion].question}</p>
-        {questions[currentQuestion].options.map((option, index) => (
-          <button
-            key={index}
-            onClick={() => handleAnswer(option.type)}
-            style={index === 0 ? { backgroundColor: "#EFC2CD" } : {}}
-          >
-            {option.answer}
-          </button>
-        ))}
-      </Con>
-    </>
+    <Con>
+      <h2>
+        질문 {currentQuestion + 1} / {questions.length}
+      </h2>
+      <FilledHeart progress={progress} />
+      <p>{questions[currentQuestion].question}</p>
+      {questions[currentQuestion].options.map((option, index) => (
+        <StyledButton
+          key={index}
+          isFirst={index === 0}
+          onClick={() => handleAnswer(option.type)}
+        >
+          {option.answer}
+        </StyledButton>
+      ))}
+    </Con>
   );
 };
 

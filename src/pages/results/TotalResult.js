@@ -5,8 +5,8 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { getZodiac, StarData } from "./data/Star";
 import Mbti from "./data/Mbti";
+
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
-import { Helmet } from "react-helmet-async";
 Chart.register(ArcElement, Tooltip, Legend);
 
 const Container = styled.section`
@@ -17,6 +17,29 @@ const Container = styled.section`
   flex-direction: column;
   align-items: center;
   position: relative;
+
+  .retry{
+    all: unset;
+    width: 361px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eeadbd;
+  border-radius: 50px;
+  color: #f5f5f5;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+    margin-top: 30px;
+    margin-bottom: 50px;
+     a{
+      text-decoration: none;
+      color: white;
+     }
+  }
 `;
 
 const BackColor = styled.div`
@@ -330,92 +353,88 @@ const TotalResult = () => {
   };
 
   return (
-    <>
-      <Helmet>
-        <title>궁합결과 | 짝짝꿍 </title>
-      </Helmet>
-      <Container>
-        <BackColor />
-        <TotalScore>
-          <h2>전체 궁합</h2>
-          <div className="doughnut-chart">
-            <Doughnut ref={chartRef} data={data} options={options} />
-            <div className="score-label">{totalScore}점</div>
-          </div>
-        </TotalScore>
+    <Container>
+      <BackColor />
+      <TotalScore>
+        <h2>전체 궁합</h2>
+        <div className="doughnut-chart">
+          <Doughnut ref={chartRef} data={data} options={options} />
+          <div className="score-label">{totalScore}점</div>
+        </div>
+      </TotalScore>
 
-        <ScoreBar>
-          <h3 className="subTitle">항목별 궁합</h3>
-          <div className="bar-item">
-            <h4>별자리</h4>
-            <Wrap>
-              <div className="bar-container">
-                <div
-                  className="filled"
-                  style={{ width: `${zodiacScore}%` }}
-                ></div>
-              </div>
-              <p>
-                {zodiacScore}
-                <span>점</span>
-              </p>
-            </Wrap>
-          </div>
-          <div className="bar-item">
-            <h4>MBTI</h4>
-            <Wrap>
-              <div className="bar-container">
-                <div
-                  className="filled"
-                  style={{ width: `${mbtiScore}%` }}
-                ></div>
-              </div>
-              <p>
-                {mbtiScore}
-                <span>점</span>
-              </p>
-            </Wrap>
-          </div>
-          <div className="bar-item">
-            <h4>이름</h4>
-            <Wrap>
-              <div className="bar-container">
-                <div
-                  className="filled"
-                  style={{ width: `${nameScore}%` }}
-                ></div>
-              </div>
-              <p>
-                {nameScore}
-                <span>점</span>
-              </p>
-            </Wrap>
-          </div>
-        </ScoreBar>
+      <ScoreBar>
+        <h3 className="subTitle">항목별 궁합</h3>
+        <div className="bar-item">
+          <h4>별자리</h4>
+          <Wrap>
+            <div className="bar-container">
+              <div
+                className="filled"
+                style={{ width: `${zodiacScore}%` }}
+              ></div>
+            </div>
+            <p>
+              {zodiacScore}
+              <span>점</span>
+            </p>
+          </Wrap>
+        </div>
+        <div className="bar-item">
+          <h4>MBTI</h4>
+          <Wrap>
+            <div className="bar-container">
+              <div className="filled" style={{ width: `${mbtiScore}%` }}></div>
+            </div>
+            <p>
+              {mbtiScore}
+              <span>점</span>
+            </p>
+          </Wrap>
+        </div>
+        <div className="bar-item">
+          <h4>이름</h4>
+          <Wrap>
+            <div className="bar-container">
+              <div className="filled" style={{ width: `${nameScore}%` }}></div>
+            </div>
+            <p>
+              {nameScore}
+              <span>점</span>
+            </p>
+          </Wrap>
+        </div>
+      </ScoreBar>
 
-        <Tabs>
-          <button
-            className={activeTab === "zodiac" ? "active" : ""}
-            onClick={() => setActiveTab("zodiac")}
-          >
-            별자리
-          </button>
-          <button
-            className={activeTab === "mbti" ? "active" : ""}
-            onClick={() => setActiveTab("mbti")}
-          >
-            MBTI
-          </button>
-          <button
-            className={activeTab === "name" ? "active" : ""}
-            onClick={() => setActiveTab("name")}
-          >
-            이름
-          </button>
-        </Tabs>
-        {renderTabContent()}
-      </Container>
-    </>
+      <Tabs>
+        <button
+          className={activeTab === "zodiac" ? "active" : ""}
+          onClick={() => setActiveTab("zodiac")}
+        >
+          별자리
+        </button>
+        <button
+          className={activeTab === "mbti" ? "active" : ""}
+          onClick={() => setActiveTab("mbti")}
+        >
+          MBTI
+        </button>
+        <button
+          className={activeTab === "name" ? "active" : ""}
+          onClick={() => setActiveTab("name")}
+        >
+          이름
+        </button>
+      </Tabs>
+      {renderTabContent()}
+
+      <div className="retry">
+        <Link to={"/info"}>
+        다시 검사하기
+        </Link>
+      </div>
+
+    </Container>
   );
 };
 
