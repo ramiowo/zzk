@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import questions from "./data/questions";
 import styled from "styled-components";
-import heart from "../../imgs/heart.svg";
-import blankheart from "../../imgs/blankheart.svg"
+import questions from "./data/questions";
+import FilledHeart from "./FilledHeart";
 
 const Con = styled.div`
   width: 100%;
@@ -20,62 +19,51 @@ const Con = styled.div`
     font-size: 16px;
     font-weight: 700;
     color: white;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     margin-top: 30px;
   }
-  img {
-    margin-bottom: 40px;
-  }
+
   p {
-    margin-bottom: 100px;
+    margin-bottom: 60px;
     font-size: 22px;
     font-weight: 400;
     text-align: center;
     word-break: keep-all;
     line-height: 26px;
-  }
-
-  button {
-    all: unset;
-    width: 100%;
-    height: 65px;
-    border-radius: 50px;
-    border: 1px solid white;
-    font-family: "SCDream";
-    font-size: 16px;
-    padding: 0 20px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.5);
-    margin: 10px;
-
-    &:first-child {
-      background-color: #efc2cd;
-    }
+    margin-top: 40px;
   }
 `;
 
+// 버튼 컴포넌트: 조건부 스타일링
+const StyledButton = styled.button`
+  all: unset;
+  width: 100%;
+  height: 65px;
+  border-radius: 50px;
+  border: 1px solid white;
+  font-family: "SCDream";
+  font-size: 16px;
+  text-align: center;
+  background-color: ${(props) =>
+    props.isFirst ? "#EFC2CD" : "rgba(255, 255, 255, 0.5)"};
+  margin: 10px;
+`;
+
 const Test = () => {
-  const [answers, setAnswers] = useState({
-    E: 0,
-    I: 0,
-    S: 0,
-    N: 0,
-    T: 0,
-    F: 0,
-    J: 0,
-    P: 0,
-  });
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answers, setAnswers] = useState({});
   const navigate = useNavigate();
+
+  const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   const handleAnswer = (type) => {
     setAnswers((prev) => ({
       ...prev,
-      [type]: prev[type] + 1,
+      [type]: (prev[type] || 0) + 1,
     }));
 
     if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+      setCurrentQuestion((prev) => prev + 1);
     } else {
       navigate("/mbtiresult", { state: { answers } });
     }
@@ -86,16 +74,16 @@ const Test = () => {
       <h2>
         질문 {currentQuestion + 1} / {questions.length}
       </h2>
-      <img src={blankheart} alt="heart" />
+      <FilledHeart progress={progress} />
       <p>{questions[currentQuestion].question}</p>
       {questions[currentQuestion].options.map((option, index) => (
-        <button
+        <StyledButton
           key={index}
+          isFirst={index === 0}
           onClick={() => handleAnswer(option.type)}
-          style={index === 0 ? { backgroundColor: "#EFC2CD" } : {}}
         >
           {option.answer}
-        </button>
+        </StyledButton>
       ))}
     </Con>
   );

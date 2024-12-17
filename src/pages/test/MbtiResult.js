@@ -1,7 +1,7 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import TestResult from "./data/TestResult";
 import styled from "styled-components";
-import resultheart from "../../imgs/resultheart.svg"
+import resultheart from "../../imgs/resultheart.svg";
 
 const Con = styled.div`
   width: 100%;
@@ -29,14 +29,6 @@ const Con = styled.div`
     font-weight: 700;
     margin-bottom: 150px;
   }
-
-  div {
-    height: 300px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-  }
-
   ul {
     display: flex;
     li {
@@ -46,30 +38,26 @@ const Con = styled.div`
     font-size: 14px;
     margin-bottom: 10px;
   }
-
   p {
     padding: 0 20px;
     font-size: 16px;
     margin-bottom: 40px;
     line-height: 26px;
   }
-
-  h3{
+  h3 {
     font-size: 18px;
-   line-height: 30px;
-   opacity: 0.5;
-   margin-bottom: 5px;
+    line-height: 30px;
+    opacity: 0.5;
+    margin-bottom: 5px;
   }
-
-  h5{
+  h5 {
     font-size: 18px;
     color: #c55972;
-    font-weight: bold;    
+    font-weight: bold;
     opacity: 0.8;
     margin-bottom: 65px;
   }
-
-  img{
+  img {
     position: absolute;
     z-index: -1;
     top: 50px;
@@ -80,7 +68,15 @@ const Con = styled.div`
 
 const MbtiResult = () => {
   const location = useLocation();
-  const { answers } = location.state;
+  const navigate = useNavigate();
+
+  const { answers } = location.state || { answers: null };
+
+  if (!answers) {
+    navigate("/");
+    return null;
+  }
+
   const mbtiData = TestResult();
 
   const mbti =
