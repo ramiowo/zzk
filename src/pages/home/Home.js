@@ -2,6 +2,7 @@ import styled from "styled-components";
 import logo from "../../imgs/logo.svg";
 import homeheart from "../../imgs/homeheart.svg";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Container = styled.div`
   width: 100%;
@@ -65,8 +66,8 @@ const Button = styled.div`
     text-align: center;
     cursor: pointer;
     letter-spacing: 0px;
-    box-shadow: inset 0 0 20px rgba(255,255,255,0.3);
-    border: 2px solid rgba(255,255,255,0.4);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
   }
   .with {
     background-color: #eeadbd;
@@ -77,9 +78,8 @@ const Button = styled.div`
   .mbti {
     background-color: #fff;
     color: #eeadbd;
-    box-shadow: inset 0 0 20px rgba(238,173,189,0.1);
+    box-shadow: inset 0 0 20px rgba(238, 173, 189, 0.1);
     font-weight: 400;
-    
   }
 `;
 
@@ -94,23 +94,28 @@ const Home = () => {
     testNav("/test");
   };
   return (
-    <Container>
-      <BackColor />
-      <HomeLogo>
-        <img src={logo} alt="homelogo" />
-      </HomeLogo>
-      <HomeHeart>
-        <img src={homeheart} alt="homeheart" />
-      </HomeHeart>
-      <Button>
-        <button onClick={handleWith} className="with">
-          우리의 궁합 보기
-        </button>
-        <button onClick={handleMbti} className="mbti">
-          나의 MBTI 알아보기
-        </button>
-      </Button>
-    </Container>
+    <>
+      <Helmet>
+        <title>Home | 짝짝꿍 </title>
+      </Helmet>
+      <Container>
+        <BackColor />
+        <HomeLogo>
+          <img src={logo} alt="homelogo" />
+        </HomeLogo>
+        <HomeHeart>
+          <img src={homeheart} alt="homeheart" />
+        </HomeHeart>
+        <Button>
+          <button onClick={handleWith} className="with">
+            우리의 궁합 보기
+          </button>
+          <button onClick={handleMbti} className="mbti">
+            나의 MBTI 알아보기
+          </button>
+        </Button>
+      </Container>
+    </>
   );
 };
 

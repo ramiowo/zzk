@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import heart from "../../imgs/heart.svg";
 import styled from "styled-components";
+import { Helmet } from "react-helmet-async";
 
 const Container = styled.section`
   width: 100%;
@@ -27,7 +28,7 @@ const Container = styled.section`
       color: rgba(0, 0, 0, 0.3);
     }
   }
-  
+
   h3 {
     margin-top: 30px;
     font-size: 18px;
@@ -41,11 +42,11 @@ const Title = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  
+
   margin-top: 40px;
   margin-bottom: 12px;
 
-  img{
+  img {
     position: absolute;
   }
 
@@ -181,7 +182,7 @@ const Info = () => {
     e.preventDefault();
 
     const sanitizedUserMbti = userMbti.trim().toUpperCase();
-  const sanitizedPartnerMbti = partnerMbti.trim().toUpperCase();
+    const sanitizedPartnerMbti = partnerMbti.trim().toUpperCase();
 
     navigate("/totalresult", {
       state: {
@@ -191,96 +192,101 @@ const Info = () => {
         partnerBirthday,
         relationshipType,
         userMbti: sanitizedUserMbti,
-      partnerMbti: sanitizedPartnerMbti,
+        partnerMbti: sanitizedPartnerMbti,
       },
     });
   };
 
   return (
-    <Container>
-      <BackColor />
-      <Title>
-        <p>나</p>
-        <img src={heart} alt="heart" />
-        <p>짝꿍</p>
-      </Title>
-      <UnderLine />
-      <form onSubmit={handleSubmit}>
-        <NameWrap>
-          <h3>이름</h3>
-          <Name>
-            <input
-              type="text"
-              placeholder="나의 이름"
-              value={myName}
-              onChange={(e) => setMyName(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="짝꿍 이름"
-              value={partnerName}
-              onChange={(e) => setPartnerName(e.target.value)}
-            />
-          </Name>
-        </NameWrap>
-        <StarWrap>
-          <h3>
-            생일<span>ex ) 0109</span>
-          </h3>
-          <Star>
-            <input
-              type="text"
-              placeholder="나의 생일"
-              value={userBirthday}
-              onChange={(e) => setUserBirthday(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="짝꿍 생일"
-              value={partnerBirthday}
-              onChange={(e) => setPartnerBirthday(e.target.value)}
-            />
-          </Star>
-        </StarWrap>
-        <MbtiWrap>
-          <h3>MBTI</h3>
-          <Mbti>
-            <input
-              type="text"
-              placeholder="나의 MBTI"
-              value={userMbti}
-              onChange={(e) => setUserMbti(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="짝꿍 MBTI"
-              value={partnerMbti}
-              onChange={(e) => setPartnerMbti(e.target.value)}
-            />
-          </Mbti>
-        </MbtiWrap>
-        <WithWrap>
-          <h3>우리의 관계는?</h3>
-          <ButtonGroup>
-            <button
-              type="button"
-              className={relationshipType === "친구" ? "active" : "inactive"}
-              onClick={() => setRelationshipType("친구")}
-            >
-              친구
-            </button>
-            <button
-              type="button"
-              className={relationshipType === "연인" ? "active" : "inactive"}
-              onClick={() => setRelationshipType("연인")}
-            >
-              연인
-            </button>
-          </ButtonGroup>
-        </WithWrap>
-        <TotalButton type="submit">우리의 궁합 보기</TotalButton>
-      </form>
-    </Container>
+    <>
+      <Helmet>
+        <title>궁합보기 | 짝짝꿍 </title>
+      </Helmet>
+      <Container>
+        <BackColor />
+        <Title>
+          <p>나</p>
+          <img src={heart} alt="heart" />
+          <p>짝꿍</p>
+        </Title>
+        <UnderLine />
+        <form onSubmit={handleSubmit}>
+          <NameWrap>
+            <h3>이름</h3>
+            <Name>
+              <input
+                type="text"
+                placeholder="나의 이름"
+                value={myName}
+                onChange={(e) => setMyName(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="짝꿍 이름"
+                value={partnerName}
+                onChange={(e) => setPartnerName(e.target.value)}
+              />
+            </Name>
+          </NameWrap>
+          <StarWrap>
+            <h3>
+              생일<span>ex ) 0109</span>
+            </h3>
+            <Star>
+              <input
+                type="text"
+                placeholder="나의 생일"
+                value={userBirthday}
+                onChange={(e) => setUserBirthday(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="짝꿍 생일"
+                value={partnerBirthday}
+                onChange={(e) => setPartnerBirthday(e.target.value)}
+              />
+            </Star>
+          </StarWrap>
+          <MbtiWrap>
+            <h3>MBTI</h3>
+            <Mbti>
+              <input
+                type="text"
+                placeholder="나의 MBTI"
+                value={userMbti}
+                onChange={(e) => setUserMbti(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="짝꿍 MBTI"
+                value={partnerMbti}
+                onChange={(e) => setPartnerMbti(e.target.value)}
+              />
+            </Mbti>
+          </MbtiWrap>
+          <WithWrap>
+            <h3>우리의 관계는?</h3>
+            <ButtonGroup>
+              <button
+                type="button"
+                className={relationshipType === "친구" ? "active" : "inactive"}
+                onClick={() => setRelationshipType("친구")}
+              >
+                친구
+              </button>
+              <button
+                type="button"
+                className={relationshipType === "연인" ? "active" : "inactive"}
+                onClick={() => setRelationshipType("연인")}
+              >
+                연인
+              </button>
+            </ButtonGroup>
+          </WithWrap>
+          <TotalButton type="submit">우리의 궁합 보기</TotalButton>
+        </form>
+      </Container>
+    </>
   );
 };
 
