@@ -1,6 +1,6 @@
 # 짝짝꿍
 
-## 프로젝트 github URL -https://github.com/ramiowo/zzk.git
+## 프로젝트 github URL https://ramiowo.github.io/zzk/
 
 ## 목적
 
